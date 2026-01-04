@@ -6,7 +6,14 @@ import { CATEGORY_STRUCTURE, DEFAULT_HASHTAGS } from './types';
 
 const SYNC_CONFIG_KEY = 'tm_robot_sync_config_v1';
 const HASHTAG_LIBRARY_KEY = 'tm_robot_hashtag_library_v1';
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw7verYxkO6AqQQvzWjuQHHYGnnILD9yEIsaqVNCHSlXTVaSfk1J2HvO4aA_Tjx5-qgKg/exec";
+// Replace your old hard-coded link with this:
+const APPS_SCRIPT_URL = import.meta.env.VITE_APPS_SCRIPT_URL;
+
+// Then your fetch function uses it like this:
+const response = await fetch(APPS_SCRIPT_URL, {
+  method: 'POST',
+  body: JSON.stringify(data)
+});
 
 const TM_BLUE = '#005C84'; 
 const TM_GREEN = '#82BC41'; 
