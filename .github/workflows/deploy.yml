@@ -32,6 +32,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # This connects your GitHub Secret to a variable Vite can use
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
